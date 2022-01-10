@@ -1,24 +1,7 @@
-# README
+# Revest-Stone-app
+Small app to Revest Stone, as a small business company that wants to control of Clients, Products and Prices.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Characteristics
+* Ruby 3.0
+* Rails 7.0
+* PostgreSQL
