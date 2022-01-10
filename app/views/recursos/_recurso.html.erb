@@ -1,0 +1,27 @@
+<div id="<%= dom_id recurso %>">
+  <p>
+    <strong>Nome:</strong>
+    <%= recurso.nome %>
+  </p>
+
+  <p>
+    <strong>Medida:</strong>
+    <%= recurso.medida %>
+  </p>
+
+  <p>
+    <strong>Grupo recurso:</strong>
+    <%= recurso.grupo_recurso_id %>
+  </p>
+
+  <p>
+    <strong>Nome curto:</strong>
+    <%= recurso.nome_curto %>
+  </p>
+
+  <p>
+    <strong>Ativo:</strong>
+    <%= recurso.ativo == true ? "SIM" : "NÃO" %>
+  </p>
+
+</div>

@@ -1,0 +1,48 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+<div class="flex">
+  <h1 class="text-black">Recursos</h1>
+  <%= link_to "+ Novo Recurso", new_recurso_path, class: "btn btn-info small" %>
+</div>
+<br>
+<div id="tabRecursos" style="width: 98%;">
+  <table id="Recursos" class="table dataTable datatable-basic table-striped table-bordered table-hover display bg-gray" 
+  role="grid">
+  <thead>
+    <th>Grupo</th>
+    <th>Nome</th>
+    <th>Medida</th>
+    <th>Ativo</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @recursos.each do |recurso| %>
+      <tr>
+        <td><%= recurso.grupo_recurso.nome %></td>
+        <td><%= recurso.nome %></td>
+        <td><%= recurso.medida %></td>
+        <td><%= recurso.ativo == true ? "SIM" : "NÃO" %></td>
+        <td> <%= link_to "Detalhes", recurso, class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+     $('#Recursos').DataTable({
+        autoWidth: true,
+        info: false,
+        searching: true,
+        order: [[1]],
+        paging: false,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+     });
+  });
+</script>
+

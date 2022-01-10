@@ -1,0 +1,10 @@
+<div id="detalhe" class="text-black">
+  <h3>Recurso</h3>
+  <%= render @recurso %>
+</div>
+
+<div class="btn-group" role="group" style="display: inline-block;">
+  <%= link_to "Editar Recurso", edit_recurso_path(@recurso), class: "btn btn-info" %> |
+  <%= link_to "Listar Recursos", recursos_path, class: "btn btn-secondary" %>|
+  <%= button_to "Apagar este Recurso", @recurso, method: :delete, class: "btn btn-danger inline " %>
+</div>

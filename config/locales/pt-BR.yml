@@ -1,0 +1,42 @@
+pt-BR:
+  activerecord:
+    models:
+      supplier: Fornecedor
+    attributes:
+      recurso:
+        medidas:
+          m2: m2 - metro quadrado
+          Kg: Kg - Kilograma
+          m3: m3 - metro cúbico
+          mL: mL - metro linear
+          T: T - Tonelada
+      user: &user_attributes
+        razaosocial: Razão Social
+        fantasia: Nome de Fantasia
+        password: Senha
+        document: Documento(CNPJ ou CPF)
+        cnpj: CNPJ
+        cpf: CPF
+        social_name: Razão Social
+        address_zip_code: CEP
+        address_street: Endereço
+        address_number: Número
+        address_complement: Complemento
+        address_district: Bairro
+        address_city: Cidade
+        address_state: Estado
+        bank: Banco
+        bank_agency: Agência
+        bank_account: Conta
+        phone_number: Telefone
+        pix_key: Chave Pix
+        pix_key_types:
+          phone: Telefone
+          email: E-mail
+          cpf: CPF
+          cnpj: CNPJ
+          other: Outro
+      supplier:
+        <<: *user_attributes
+  Show: Mostrar    
+  Search: Pesquisar

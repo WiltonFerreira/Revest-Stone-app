@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: recursos
+#
+#  id               :bigint           not null, primary key
+#  nome             :string
+#  medida           :string
+#  grupo_recurso_id :bigint           not null
+#  nome_curto       :string
+#  ativo            :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  nome: MyString
+  medida: MyString
+  grupo_recurso: one
+  nome_curto: MyString
+  ativo: false
+
+two:
+  nome: MyString
+  medida: MyString
+  grupo_recurso: two
+  nome_curto: MyString
+  ativo: false

@@ -1,0 +1,41 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+<div class="flex">
+  <h1 class="text-black">Grupo de Recursos</h1>
+  <%= link_to "+ Novo Grupo de Recurso", new_grupo_recurso_path, class: "btn btn-info small" %>
+</div>
+<br>
+<div id="tabGrupo_recursos" style="width: 98%;">
+  <table id="grupo_recursos" class="table dataTable datatable-basic table-striped table-bordered table-hover display bg-gray" 
+  role="grid">
+  <thead>
+    <th>Nome</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @grupo_recursos.each do |grupo_recurso| %>
+      <tr>
+        <td><%= grupo_recurso.nome %></td>
+        <td> <%= link_to "Detalhes", grupo_recurso, class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+     $('#grupo_recursos').DataTable({
+        autoWidth: true,
+        info: false,
+        searching: true,
+        order: [[1]],
+        paging: false,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+     });
+  });
+</script>

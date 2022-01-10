@@ -1,0 +1,53 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+<div class="flex">
+  <h1 class="text-black">Fornecedor</h1>
+  <%= link_to "+ Novo Fornecedor", new_supplier_path, class: "btn btn-info small" %>
+</div>
+<br>
+<div id="tabSuppliers" style="width: 98%;">
+  <table id="suppliers" class="table dataTable datatable-basic table-striped table-bordered table-hover display bg-gray" 
+  role="grid">
+  <thead>
+    <th>Nome Fantasia</th>
+    <th>Razao Social</th>
+    <th>CNPJ</th>
+    <th>CPF</th>
+    <th>Endereco<br>Cidade - Estado </th>
+    <th>Contato</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @suppliers.each do |supplier| %>
+      <tr>
+        <td><%= supplier.fantasia %></td>
+        <td><%= supplier.razaosocial %></td>
+        <td><%= supplier.cnpj %></td>
+        <td><%= supplier.cpf %></td>
+        <td><%= supplier.endereco %><br><%= supplier.cidade %>-<%= supplier.estado %></td>
+        <td><%= supplier.telefone %><br><%= supplier.whatsapp %></td>
+        <td> <%= link_to "Detalhes", supplier, class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+     $('#suppliers').DataTable({
+        autoWidth: true,
+        info: false,
+        searching: true,
+        order: [[1]],
+        paging: false,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+     });
+  });
+</script>
+

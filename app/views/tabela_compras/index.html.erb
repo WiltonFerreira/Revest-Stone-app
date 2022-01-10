@@ -1,0 +1,53 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+<div class="flex">
+  <h1 class="text-black">Preço do Fornecedor</h1>
+  <%= link_to "+ Novo Preço do Fornecedor", new_tabela_compra_path, class: "btn btn-info small" %>
+  <%= link_to "+ Nova Planilha do Fornecedor", tabela_compras_planilha_path, class: "btn btn-info small" %>
+</div>
+<br>
+<div id="tabTabCompras" style="width: 98%;">
+  <table id="tabela_compras" class="table dataTable datatable-basic table-striped table-bordered table-hover display bg-gray" 
+  role="grid">
+  <thead>
+    <th>Data</th>
+    <th>Recurso</th>
+    <th>Fornecedor</th>
+    <th>Valor</th>
+    <th>Ativo</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @tabela_compras.each do |tabela_compra| %>
+      <tr>
+        <td><%= tabela_compra.data.strftime("%d/%m/%Y")  %></td>
+        <td class="inline"><span class="bg-info"><%= tabela_compra.recurso.grupo_recurso.nome %></span>
+         - <%= tabela_compra.recurso.nome %>-<%= tabela_compra.recurso.medida %></td>
+        <td><%= tabela_compra.supplier.fantasia %></td>
+        <td><%= number_to_currency(tabela_compra.valor) %></td>
+        <td><%= tabela_compra.ativo==true ? "SIM" : "NÃO" %></td>
+        <td> <%= link_to "Detalhes", tabela_compra, class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+     $('#tabela_compras').DataTable({
+        autoWidth: true,
+        info: false,
+        searching: true,
+        order: [[1]],
+        paging: false,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+     });
+  });
+</script>
+

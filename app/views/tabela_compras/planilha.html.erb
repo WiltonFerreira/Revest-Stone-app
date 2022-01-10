@@ -1,0 +1,51 @@
+<div>
+    <%= link_to "Lista tabela compras", tabela_compras_path, class: "btn btn-secondary" %>
+</div>
+<div class="form-body">
+  <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3 class="form-title"> Preço do Fornecedor </h3>
+
+<%= form_with(model: @tabela_compra, url: '/tabela_compras/savePlanilha') do |form| %>
+  <% if @tabela_compra.errors.any? %>
+    <div style="color: red">
+      <h2><%= @tabela_compra.errors.count %> <%= @tabela_compra.errors.count==1 ? "erro deve" : "erros devem" %> ser corrigidos:</h2>
+
+      <ul>
+        <% @tabela_compra.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="mt-1 mb-0">
+   	<%= form.label :data, style: "display: block", style: "display: block", class: "form-label" %>
+    	<%= form.date_field :data, class: "form-control", placeholder: "Data da tabela" , value: Time.now.strftime('%Y-%m-%d') %>
+  	</div>
+	<div class="mt-1 mb-0">
+   	<%= form.label :supplier_id, "Fornecedor", style: "display: block", class: "form-label"  %>
+    	<%= form.select :supplier_id, options_from_collection_for_select(Supplier.order(:fantasia), "id", "nomesupplier", @tabela_compra.supplier_id) %>
+  	</div>
+	<% @recurso.each_with_index do |recurso,i| %>
+		
+   	<div class="mt-1 mb-0">
+			<%= form.text_field :recurso_id, value: recurso[:id], name: 'tabela_compra[recurso_id_'+i.to_s+']' %>
+      	<%= form.label :valor, style: "display: block", style: "display: block", class: "form-label", value: recurso.nome %>
+        	<%= form.number_field :valor, class: "form-control", placeholder: "Valor R$ 00,00", value: number_to_currency(form.object.valor.to_f, delimiter: '', unit: ''), step: :any%>
+    	</div>
+	<% end %>
+	
+	<br>
+  	<div class="row" style="border-top: 4px;">
+   	<%= button_tag "Limpar", type: :reset , class: "btn btn-secondary col-md-4 " %>
+    	<%= form.submit  class: "btn btn-primary col-md-4 offset-md-4"  %>
+  	</div>
+<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="form-body">
+  <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3 class="form-title"> Fornecedor </h3>
+
+<%= form_with(model: supplier) do |form| %>
+  <% if supplier.errors.any? %>
+    <div style="color: red">
+      <h2><%= supplier.errors.count %> <%= supplier.errors.count==1 ? "erro" : "erros" %> devem ser corrigidos:</h2>
+
+      <ul>
+        <% supplier.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="mt-1 mb-0">
+    <%= form.label :fantasia,"Nome de Fantasia", style: "display: block", class: "form-label"%>
+    <%= form.text_field :fantasia, size: 50, class: "form-control", placeholder: "Nome de Fantasia"  %>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :razaosocial, style: "display: block", class: "form-label" %>
+    <%= form.text_field :razaosocial,  class: "form-control", placeholder: "Razao Social" %>
+  </div>
+
+  <div class="mt-1 mb-0 row">
+    <div class="col-8">
+      <%= form.label :cnpj, style: "display: block", class: "form-label" %>
+      <%= form.text_field :cnpj,  class: "form-control", placeholder: "xx.xxx.xxx/xxxx-xx" %>
+    </div>
+    <div class="col">
+      <%= form.label :cpf, style: "display: block", class: "form-label" %>
+      <%= form.text_field :cpf,  class: "form-control", placeholder: "xxx.xxx.xxx-xx"  %>
+    </div>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :endereco, "Endereço", style: "display: block", class: "form-label" %>
+    <%= form.text_field :endereco,  class: "form-control", placeholder: "Endereço" %>
+  </div>
+
+  <div class="mt-1 mb-0 row">
+    <div class="col-9">
+      <%= form.label :cidade, style: "display: block", class: "form-label" %>
+      <%= form.text_field :cidade,  class: "form-control", placeholder: "Cidade" %>
+    </div>
+    <div class="col">
+      <%= form.label :estado, style: "display: block", class: "form-label" %>
+      <%= form.text_field :estado,  class: "form-control", placeholder: "UF"  %>
+    </div>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :email, style: "display: block", class: "form-label" %>
+    <%= form.text_field :email,  class: "form-control", placeholder: "email@email" %>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :telefone, style: "display: block", class: "form-label" %>
+    <%= form.text_field :telefone,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :whatsapp, style: "display: block", class: "form-label" %>
+    <%= form.text_field :whatsapp,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
+  </div>
+
+  <div class="mt-1 mb-0">
+    <%= form.label :site, style: "display: block", class: "form-label" %>
+    <%= form.text_field :site,  class: "form-control", placeholder: "http://site-da-empresa" %>
+  </div>
+
+  <div class="mt-1 mb-3">
+    <%= form.check_box :ativo %>
+    <%= form.label :ativo, style: "display: inline", class: "form-label" %>
+  </div>
+
+  <div class="row" style="border-top: 4px;">
+    <%= button_tag "Limpar", type: :reset , class: "btn btn-secondary col-md-4 " %>
+    <%= form.submit  class: "btn btn-primary col-md-4 offset-md-4"  %>
+  </div>
+<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="detalhe" class="text-black">
+  <h3>Tabela de Preços</h3>
+  <%= render @tabela_compra %>
+</div>
+
+<div>
+  <%= link_to "Edit this tabela compra", edit_tabela_compra_path(@tabela_compra), class: "btn btn-info"  %> |
+  <%= link_to "Back to tabela compras", tabela_compras_path, class: "btn btn-secondary" %>
+
+  <%= button_to "Destroy this tabela compra", @tabela_compra, method: :delete, class: "btn btn-danger" %>
+</div>

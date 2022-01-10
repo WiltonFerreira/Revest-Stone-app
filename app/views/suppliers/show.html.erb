@@ -1,0 +1,10 @@
+<div id="detalhe" class="text-black">
+<h3>Fornecedor</h3>
+<%= render @supplier %>
+</div>
+
+<div>
+  <%= link_to "Editar Fornecedor", edit_supplier_path(@supplier), class: "btn btn-info" %> |
+  <%= link_to "Listar Fornecedores", suppliers_path, class: "btn btn-secondary" %>|
+  <%= button_to "Apagar este Fornecedor", @supplier, method: :delete, class: "btn btn-danger" %>
+</div>
