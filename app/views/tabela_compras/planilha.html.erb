@@ -23,19 +23,21 @@
 
 	<div class="mt-1 mb-0">
    	<%= form.label :data, style: "display: block", style: "display: block", class: "form-label" %>
-    	<%= form.date_field :data, class: "form-control", placeholder: "Data da tabela" , value: Time.now.strftime('%Y-%m-%d') %>
-  	</div>
-	<div class="mt-1 mb-0">
+   	<%= form.date_field :data, class: "form-control", placeholder: "Data da tabela" , value: Time.now.strftime('%Y-%m-%d') %>
+  </div>
+	
+  <div class="mt-1 mb-0">
    	<%= form.label :supplier_id, "Fornecedor", style: "display: block", class: "form-label"  %>
-    	<%= form.select :supplier_id, options_from_collection_for_select(Supplier.order(:fantasia), "id", "nomesupplier", @tabela_compra.supplier_id) %>
-  	</div>
-	<% @recurso.each_with_index do |recurso,i| %>
+   	<%= form.select :supplier_id, options_from_collection_for_select(Supplier.order(:fantasia), "id", "nomesupplier", @tabela_compra.supplier_id) %>
+  </div>
+	
+  <% @recurso.each_with_index do |recurso,i| %>
 		
    	<div class="mt-1 mb-0">
-			<%= form.text_field :recurso_id, value: recurso[:id], name: 'tabela_compra[recurso_id_'+i.to_s+']' %>
-      	<%= form.label :valor, style: "display: block", style: "display: block", class: "form-label", value: recurso.nome %>
-        	<%= form.number_field :valor, class: "form-control", placeholder: "Valor R$ 00,00", value: number_to_currency(form.object.valor.to_f, delimiter: '', unit: ''), step: :any%>
-    	</div>
+			<%= form.hidden_field :recurso_id, value: recurso[:id], name: 'tabela_compra[recurso_id_'+i.to_s+']' %>
+     	<%= form.label :valor, style: "display: block", style: "display: block", class: "form-label", value: recurso.nome %>
+     	<%= form.text_field :valor, name: 'tabela_compra[valor_'+i.to_s+']', class: "form-control", placeholder: "Valor R$ 00,00", value: number_to_currency(form.object.valor.to_f, delimiter: '.', unit: ''), step: :any%>
+    </div>
 	<% end %>
 	
 	<br>
