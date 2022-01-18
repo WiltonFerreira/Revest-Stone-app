@@ -20,10 +20,15 @@ class TabelaComprasController < ApplicationController
     @recurso = Recurso.where(ativo: true).order(:nome)
   end
 
-  def savePlanilha
-    #@tabela_compra = TabelaCompra.new
-    #@recurso = Recurso.where(ativo: true).order(:nome)
-    puts @tabela_compra
+  def newPlanilha
+    respond_to do |format|
+      if @tabela_compra = TabelaCompra.savePlanilha(tabela_compra_params)
+        format.html { redirect_to tabela_compras_url, notice: "Planilha criada com sucesso." }
+      else
+        puts "Params: #{params}"
+        format.html { render :planilha, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /tabela_compras/1/edit
@@ -33,7 +38,6 @@ class TabelaComprasController < ApplicationController
   # POST /tabela_compras or /tabela_compras.json
   def create
     @tabela_compra = TabelaCompra.new(tabela_compra_params)
-
     respond_to do |format|
       if @tabela_compra.save
         format.html { redirect_to tabela_compra_url(@tabela_compra), notice: "Tabela compra was successfully created." }
@@ -76,6 +80,6 @@ class TabelaComprasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tabela_compra_params
-      params.require(:tabela_compra).permit(:data, :recurso_id, :supplier_id, :valor, :ativo)
+      params.require(:tabela_compra).permit(:data, :recurso_id, :supplier_id, :valor, :ativo, recursos: [:valor, :recurso_id])
     end
 end

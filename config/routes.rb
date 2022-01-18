@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'tabela_compras/planilha'
-  post 'tabela_compras/savePlanilha'
+  post 'tabela_compras/newPlanilha'
   resources :tabela_compras
   resources :recursos
   resources :grupo_recursos

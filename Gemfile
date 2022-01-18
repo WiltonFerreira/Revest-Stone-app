@@ -75,4 +75,5 @@ group :test do
   gem "webdrivers"
 end
 
+gem "importmap-rails"
 gem "devise"
