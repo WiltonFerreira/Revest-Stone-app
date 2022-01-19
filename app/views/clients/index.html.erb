@@ -1,0 +1,53 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+<div class="flex">
+  <h1 class="text-black">Cliente</h1>
+  <%= link_to "+ Novo Cliente", new_client_path, class: "btn btn-info small" %>
+</div>
+<br>
+<div id="tabSuppliers" style="width: 98%;">
+  <table id="clients" class="table dataTable datatable-basic table-striped table-bordered table-hover display bg-gray" 
+  role="grid">
+  <thead>
+    <th>Nome Fantasia</th>
+    <th>Razao Social</th>
+    <th>CNPJ</th>
+    <th>CPF</th>
+    <th>Endereco<br>Cidade - Estado </th>
+    <th>Contato</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.fantasia %></td>
+        <td><%= client.razaosocial %></td>
+        <td><%= client.cnpj %></td>
+        <td><%= client.cpf %></td>
+        <td><%= client.endereco %><br><%= client.cidade %>-<%= client.estado %></td>
+        <td><%= client.telefone %><br><%= client.whatsapp %></td>
+        <td> <%= link_to "Detalhes", client, class: "btn btn-secondary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+     $('#clients').DataTable({
+        autoWidth: true,
+        info: false,
+        searching: true,
+        order: [[1]],
+        paging: false,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+     });
+  });
+</script>
+

@@ -6,10 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "forms", "data-turbo-track": "reload" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <%= javascript_include_tag "application_old", "forms", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "forms",  defer: true %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "forms", "data-turbo-track": "reload" %>
+    
   </head>
 
   <body>

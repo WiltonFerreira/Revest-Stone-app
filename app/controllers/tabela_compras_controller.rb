@@ -1,4 +1,5 @@
 class TabelaComprasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tabela_compra, only: %i[ show edit update destroy ]
 
   # GET /tabela_compras or /tabela_compras.json
@@ -40,7 +41,7 @@ class TabelaComprasController < ApplicationController
     @tabela_compra = TabelaCompra.new(tabela_compra_params)
     respond_to do |format|
       if @tabela_compra.save
-        format.html { redirect_to tabela_compra_url(@tabela_compra), notice: "Tabela compra was successfully created." }
+        format.html { redirect_to tabela_compra_url(@tabela_compra), notice: "Tabela de compra criada." }
         format.json { render :show, status: :created, location: @tabela_compra }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +54,7 @@ class TabelaComprasController < ApplicationController
   def update
     respond_to do |format|
       if @tabela_compra.update(tabela_compra_params)
-        format.html { redirect_to tabela_compra_url(@tabela_compra), notice: "Tabela compra was successfully updated." }
+        format.html { redirect_to tabela_compra_url(@tabela_compra), notice: "Tabela de compra atualizada." }
         format.json { render :show, status: :ok, location: @tabela_compra }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,7 +68,7 @@ class TabelaComprasController < ApplicationController
     @tabela_compra.destroy
 
     respond_to do |format|
-      format.html { redirect_to tabela_compras_url, notice: "Tabela compra was successfully destroyed." }
+      format.html { redirect_to tabela_compras_url, notice: "Tabela de compra apagada." }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,5 @@
 class GrupoRecursosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_grupo_recurso, only: %i[ show edit update destroy ]
 
   # GET /grupo_recursos or /grupo_recursos.json

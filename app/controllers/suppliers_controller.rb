@@ -1,9 +1,10 @@
 class SuppliersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_supplier, only: %i[ show edit update destroy ]
 
   # GET /suppliers or /suppliers.json
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.where(type: 'Supplier')
   end
 
   # GET /suppliers/1 or /suppliers/1.json

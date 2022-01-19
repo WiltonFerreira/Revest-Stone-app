@@ -1,0 +1,10 @@
+<div id="detalhe" class="text-black">
+<h3>Cliente</h3>
+<%= render @client %>
+</div>
+
+<div>
+  <%= link_to "Editar Cliente", edit_client_path(@client), class: "btn btn-info" %> |
+  <%= link_to "Listar Clientes", clients_path, class: "btn btn-secondary" %>|
+  <%= button_to "Apagar este Cliente", @client, method: :delete, class: "btn btn-danger" %>
+</div>

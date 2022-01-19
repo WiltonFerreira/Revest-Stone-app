@@ -76,4 +76,6 @@ group :test do
 end
 
 gem "importmap-rails"
-gem "devise"
+gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
+
+gem "hotwire-rails", "~> 0.1.3"
