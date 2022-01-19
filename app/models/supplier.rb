@@ -22,6 +22,7 @@ class Supplier < ApplicationRecord
     has_many :tabela_compras
 
     validates :razaosocial, :fantasia, :endereco, :cidade, :estado, :telefone, :presence => true
+    after_initialize :set_defaults, unless: :persisted?
     before_save :formata
 
     def localizacao
@@ -43,4 +44,10 @@ class Supplier < ApplicationRecord
         email.downcase!
         site.downcase!
     end
+
+    def set_defaults
+        self.type  ||= 'Supplier'
+        self.estado ||='GO'
+    end
+
 end
