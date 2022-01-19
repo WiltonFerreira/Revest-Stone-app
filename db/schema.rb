@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_222200) do
+ActiveRecord::Schema.define(version: 2022_01_19_223613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2022_01_19_222200) do
     t.string "cpf"
     t.string "type"
     t.string "inscEstadual"
+    t.string "instagram"
   end
 
   create_table "tabela_compras", force: :cascade do |t|

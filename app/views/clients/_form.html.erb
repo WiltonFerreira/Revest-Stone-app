@@ -64,16 +64,22 @@
     <%= form.text_field :email,  class: "form-control", placeholder: "email@email" %>
   </div>
 
-  <div class="mt-1 mb-0">
-    <%= form.label :telefone, style: "display: block", class: "form-label" %>
-    <%= form.text_field :telefone,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
-  </div>
+  <div class="mt-1 mb-0 row">
+    <div class="col-4">
+      <%= form.label :telefone, style: "display: block", class: "form-label" %>
+      <%= form.text_field :telefone,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
+    </div>
 
-  <div class="mt-1 mb-0">
-    <%= form.label :whatsapp, style: "display: block", class: "form-label" %>
-    <%= form.text_field :whatsapp,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
-  </div>
+    <div class="col">
+      <%= form.label :whatsapp, style: "display: block", class: "form-label" %>
+      <%= form.text_field :whatsapp,  class: "form-control", placeholder: "Telefone +55(XX) XXXXX-XXXX" %>
+    </div>
 
+    <div class="col">
+      <%= form.label :instagram, "Instagram", style: "display: block", class: "form-label" %>
+      <%= form.text_field :instagram,  class: "form-control", placeholder: "Instagram" %>
+    </div>
+  </div>
   <div class="mt-1 mb-0">
     <%= form.label :site, style: "display: block", class: "form-label" %>
     <%= form.text_field :site,  class: "form-control", placeholder: "http://site-da-empresa" %>
